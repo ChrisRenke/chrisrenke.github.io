@@ -36,6 +36,9 @@ Of `ReplacementSpan`'s four methods, two are commented to say literally "this me
 
 MonospaceSpan
 -------------
+
+![MonospaceSpan Example]({{ site.url }}/assets/span_gif_mono.gif)
+
 For `MonospaceSpan`, the goal was quite simple: all characters should have the same allotted width on the canvas, and each character should be drawn centered. When used on a password field, this would make all the letters transition from characters to masking dots in a manner such that all the dots would be equally spaced apart regardless of the width of the individual letters themselves.
 
 After looking at a few other potential usecases outside of password spanning, a couple constructors were deemed useful: one to use the widest character in the spanned string to for the monospace width, one to use the widest character in a given library string as the monospace width, and a no-args version that uses the widest of either 'M' or 'W' as the given monospace width.
@@ -101,6 +104,9 @@ public void draw(Canvas canvas, CharSequence text, int start, int end, float x, 
 
 TabularSpan
 -------------
+
+![TabularSpan Example]({{ site.url }}/assets/span_gif.gif)
+
 The goal of `TabularSpan` was to have multiple buckets of monospaced characters; in the example of our usecase of formatting money ammounts ($5,010.77), all the digit characters should have the same width X and all the delimiter characters like periods and commas should have the same width Z (any character not defined in these two groups will have its standard width). This ensures that when these values are right aligned, all the decimal points and commas will line up vertically for easy visual parsing. You can easily imagine how this could be useful for lots of IP addresses, phone numbers, ID numbers, or other numeric data.
 
 Two constructors seemed to cover ours needs, but it would be very straightfoward to extend this to more buckets of tabularity. The no-args constructor uses standard number digits as the numeral group and both comma and period as the delimiter group; alternatively you can specify what characters those two groups should consist of.
