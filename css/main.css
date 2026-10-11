@@ -66,7 +66,9 @@ a:visited { color: #a0a; }
 .site {
   font-size: 115%;
   text-align: justify;
-  width: 48em;
+  max-width: 48em;
+  box-sizing: border-box;
+  padding: 0 1em;
   margin: 3em auto 2em;
   line-height: 1.5em;
 }
@@ -114,6 +116,10 @@ a:visited { color: #a0a; }
   float: left;
   margin-right: 3em;
 }
+
+img { max-width: 100%; height: auto; }
+.post pre { overflow-x: auto; }
+.post { overflow-wrap: break-word; }
 
 .footer .contact a {
   color: #8085C1;
@@ -194,4 +200,30 @@ a:visited { color: #a0a; }
 
 .post pre.terminal code {
   background-color: #333;
+}
+
+/*****************************************************************************/
+/*
+/* Small screens
+/*
+/*****************************************************************************/
+@media (max-width: 600px) {
+  .site {
+    margin-top: 1.5em;
+    text-align: left;
+  }
+
+  .title { margin-bottom: 1em; }
+
+  .date-label,
+  .post-box {
+    display: block;
+  }
+
+  .posts li { margin-bottom: 1em; }
+
+  .footer .contact {
+    float: none;
+    margin-right: 0;
+  }
 }
