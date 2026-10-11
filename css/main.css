@@ -10,7 +10,7 @@
   padding: 0;
 }
 
-html, body { height: 100%; }
+html { min-height: 100%; }
 
 :root { --contour-color: #d9d0b8; }
 
@@ -28,19 +28,23 @@ body {
   font: 13.34px Helvetica, Arial, sans-serif;
   font-size: small;
   text-align: center;
+  padding-bottom: 3em;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-size: 100%; }
 
 h1 { margin-bottom: 1em; }
-h2 { 
-  line-height: 2em;
+h2 {
+  line-height: 1.3em;
   margin-bottom: 1em;
+  padding-bottom: .4em;
   border-bottom: 1px solid #eee;
   display: block;
-  height: 2em;
-  font-size: 1.4em;
+  font-size: 1.3em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .05em;
 }
 p { margin: 1em 0; }
 
@@ -162,6 +166,8 @@ a:visited { color: #a0a; }
 
 .title a {
   color: #a00;
+  text-transform: uppercase;
+  letter-spacing: .08em;
 }
 
 .title a:hover {
@@ -169,7 +175,10 @@ a:visited { color: #a0a; }
 }
 
 .masthead a.extra {
-  color: #aaa;
+  color: #7a6a48;
+  font-size: 80%;
+  text-transform: uppercase;
+  letter-spacing: .1em;
 }
 
 .masthead a.extra:hover {
@@ -186,6 +195,12 @@ a:visited { color: #a0a; }
   border-top: 4px solid #eee;
   margin-top: 2em;
   overflow: hidden;
+}
+
+.footer .contact:first-child p {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .06em;
 }
 
 .footer .contact {
@@ -224,6 +239,10 @@ img { max-width: 100%; height: auto; }
 
 .post-box {
   display: inline-block;
+}
+
+.post-box > a {
+  font-weight: bold;
 }
 
 .post-excerpt {
@@ -274,6 +293,8 @@ img { max-width: 100%; height: auto; }
 .projects .project-title {
   font-weight: bold;
   text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: .06em;
 }
 
 .projects .project-date {
@@ -307,6 +328,12 @@ img { max-width: 100%; height: auto; }
   margin: 1em 0;
   padding: 1em;
   line-height: 1.5em;
+}
+
+.post h2 {
+  font-size: 1em;
+  letter-spacing: .1em;
+  margin-top: 1.5em;
 }
 
 .post ul, .post ol {

@@ -1,23 +1,24 @@
 // Topographic contour lines drawn behind the page.
 // Seeded value noise -> marching squares. Terrain is defined in page pixels,
 // so resizing the window reveals more or less of the same landscape.
+// The terrain repeats vertically every TILE px, so the parallax can scroll
+// forever with a fixed-size canvas.
 (function () {
   var canvas = document.getElementById('contour');
   if (!canvas || !canvas.getContext) return;
   var ctx = canvas.getContext('2d');
 
   var SEED = 1337;
-  var SCALE = 340;   // px per noise unit; bigger = broader hills
-  var CELL = 7;      // grid resolution in px
-  var STEP = 0.035;  // elevation between lines
+  var SCALE = 340;     // px per noise unit; bigger = broader hills
+  var TILE_CELLS = 3;  // vertical repeat, in noise units
+  var TILE = SCALE * TILE_CELLS;
+  var CELL = 7;        // grid resolution in px
+  var STEP = 0.035;    // elevation between lines
   var INDEX_EVERY = 5;
-  var PARALLAX = 0.25;   // background scrolls at this fraction of page speed
-  var MAX_EXTRA = 700;   // cap on extra canvas height, keeps memory sane
+  var PARALLAX = 0.25; // background scrolls at this fraction of page speed
 
   var reduceMotion = window.matchMedia &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var factor = 0;
-  var extra = 0;
 
   function hash(x, y) {
     var h = (x * 374761393 + y * 668265263 + SEED * 2147483647) | 0;
@@ -27,20 +28,24 @@
 
   function smooth(t) { return t * t * (3 - 2 * t); }
 
-  function noise(x, y) {
+  // period: lattice cells before the y axis wraps around
+  function noise(x, y, period) {
     var ix = Math.floor(x), iy = Math.floor(y);
     var fx = smooth(x - ix), fy = smooth(y - iy);
-    var a = hash(ix, iy), b = hash(ix + 1, iy);
-    var c = hash(ix, iy + 1), d = hash(ix + 1, iy + 1);
+    var y0 = ((iy % period) + period) % period;
+    var y1 = (y0 + 1) % period;
+    var a = hash(ix, y0), b = hash(ix + 1, y0);
+    var c = hash(ix, y1), d = hash(ix + 1, y1);
     return a + (b - a) * fx + (c - a) * fy + (a - b - c + d) * fx * fy;
   }
 
   function elevation(px, py) {
     var x = px / SCALE, y = py / SCALE, amp = 1, sum = 0, norm = 0;
+    var period = TILE_CELLS;
     for (var o = 0; o < 4; o++) {
-      sum += amp * noise(x, y);
+      sum += amp * noise(x, y, period);
       norm += amp;
-      x *= 2; y *= 2; amp *= 0.5;
+      x *= 2; y *= 2; amp *= 0.5; period *= 2;
     }
     return sum / norm;
   }
@@ -58,15 +63,11 @@
   }
 
   function draw() {
-    var dpr = window.devicePixelRatio || 1;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
     var w = window.innerWidth, vh = window.innerHeight;
-
-    // Draw a taller canvas than the viewport so there is terrain to slide
-    // into view while the page scrolls.
-    var maxScroll = Math.max(0, document.documentElement.scrollHeight - vh);
-    extra = reduceMotion ? 0 : Math.min(maxScroll * PARALLAX, MAX_EXTRA);
-    factor = maxScroll ? extra / maxScroll : 0;
-    var h = Math.ceil(vh + extra);
+    // Canvas is one tile taller than the window so there is always terrain
+    // to slide into view.
+    var h = reduceMotion ? vh : vh + TILE;
     canvas.width = Math.round(w * dpr);
     canvas.height = Math.round(h * dpr);
     canvas.style.width = w + 'px';
@@ -76,13 +77,9 @@
 
     var cols = Math.ceil(w / CELL) + 1, rows = Math.ceil(h / CELL) + 1;
     var field = new Float32Array(cols * rows);
-    var min = Infinity, max = -Infinity;
     for (var j = 0; j < rows; j++) {
       for (var i = 0; i < cols; i++) {
-        var v = elevation(i * CELL, j * CELL);
-        field[j * cols + i] = v;
-        if (v < min) min = v;
-        if (v > max) max = v;
+        field[j * cols + i] = elevation(i * CELL, j * CELL);
       }
     }
 
@@ -119,29 +116,28 @@
     }
   }
 
-  var pending = false;
-  function schedule() {
-    if (pending) return;
-    pending = true;
-    requestAnimationFrame(function () { pending = false; draw(); place(); });
-  }
-
   function place() {
-    var y = Math.max(0, window.pageYOffset || 0) * factor;
-    canvas.style.transform = 'translate3d(0,' + (-Math.min(y, extra)).toFixed(1) + 'px,0)';
+    if (reduceMotion) return;
+    var y = (Math.max(0, window.pageYOffset || 0) * PARALLAX) % TILE;
+    canvas.style.transform = 'translate3d(0,' + (-y).toFixed(1) + 'px,0)';
   }
 
-  var placing = false;
+  var resizing = false;
+  function onResize() {
+    if (resizing) return;
+    resizing = true;
+    requestAnimationFrame(function () { resizing = false; draw(); place(); });
+  }
+
+  var scrolling = false;
   function onScroll() {
-    if (placing) return;
-    placing = true;
-    requestAnimationFrame(function () { placing = false; place(); });
+    if (scrolling) return;
+    scrolling = true;
+    requestAnimationFrame(function () { scrolling = false; place(); });
   }
 
-  window.addEventListener('resize', schedule);
+  window.addEventListener('resize', onResize);
   if (!reduceMotion) window.addEventListener('scroll', onScroll, { passive: true });
-  // page height can change after load (images), which changes the scroll range
-  if (window.ResizeObserver) new ResizeObserver(schedule).observe(document.body);
   draw();
   place();
 })();
