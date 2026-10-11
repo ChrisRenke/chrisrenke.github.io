@@ -1,6 +1,6 @@
 # One entry per project, newest first.
 # image: path under /assets/projects/ (credit-card shaped, ~856x540 works well)
-# date and blurb are optional.
+# date and blurb are optional; blurbs have room for about 50-80 words.
 - title: Baby Schedule
   url: https://chrisrenke.com/baby-schedule
   # date:

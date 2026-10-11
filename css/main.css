@@ -287,11 +287,15 @@ img { max-width: 100%; height: auto; }
 /*****************************************************************************/
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(14em, 1fr));
-  gap: 2em 1.5em;
+  grid-template-columns: 1fr;
+  gap: 2.5em;
 }
 
 .projects li {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 1.75em;
+  align-items: start;
   line-height: 1.4em;
 }
 
@@ -302,7 +306,6 @@ img { max-width: 100%; height: auto; }
   border: 1px solid #ddd;
   border-radius: 6px;
   overflow: hidden;
-  margin-bottom: .6em;
   transition: transform .15s ease, border-color .15s ease;
 }
 
@@ -335,8 +338,11 @@ img { max-width: 100%; height: auto; }
   font-size: 80%;
 }
 
-.projects .post-excerpt {
-  margin: .3em 0;
+.projects .project-blurb {
+  margin: .6em 0;
+  font-size: 90%;
+  line-height: 1.55em;
+  text-align: left;
 }
 
 .project-url {
@@ -417,6 +423,11 @@ img { max-width: 100%; height: auto; }
   .posts:not(.projects) li {
     display: block;
     margin-bottom: 2em;
+  }
+
+  .projects li {
+    grid-template-columns: 1fr;
+    gap: .75em;
   }
 
   .date-label {

@@ -11,10 +11,12 @@ permalink: /projects
         <a class="hero" href="{{ project.url }}">
           {% if project.image %}<img src="{{ project.image }}" alt="{{ project.title }}">{% endif %}
         </a>
-        <a class="project-title" href="{{ project.url }}">{{ project.title }}</a>
-        {% if project.date %}<span class="project-date">{{ project.date | date_to_string }}</span>{% endif %}
-        {% if project.blurb %}<p class="post-excerpt">{{ project.blurb }}</p>{% endif %}
-        <p class="project-url"><a href="{{ project.url }}">{{ project.url | remove: "https://" | remove: "http://" }}</a></p>
+        <div class="project-text">
+          <a class="project-title" href="{{ project.url }}">{{ project.title }}</a>
+          {% if project.date %}<span class="project-date">{{ project.date | date_to_string }}</span>{% endif %}
+          {% if project.blurb %}<p class="project-blurb">{{ project.blurb }}</p>{% endif %}
+          <p class="project-url"><a href="{{ project.url }}">{{ project.url | remove: "https://" | remove: "http://" }}</a></p>
+        </div>
       </li>
     {% endfor %}
   </ul>
