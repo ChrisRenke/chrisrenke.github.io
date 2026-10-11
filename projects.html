@@ -16,7 +16,6 @@ permalink: /projects
           {% if project.date %}<span class="project-date">{{ project.date | date_to_string }}</span>{% endif %}
           {% if project.platforms %}<p class="pills">{% for platform in project.platforms %}<span class="pill pill-{{ platform | slugify }}">{{ platform }}</span>{% endfor %}</p>{% endif %}
           {% if project.blurb %}<p class="project-blurb">{{ project.blurb }}</p>{% endif %}
-          <p class="project-url"><a href="{{ project.url }}">{{ project.url | remove: "https://" | remove: "http://" }}</a></p>
         </div>
       </li>
     {% endfor %}
