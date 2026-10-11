@@ -25,7 +25,7 @@ html { min-height: 100%; }
 
 body {
   background-color: #f2eee4;
-  font: 13.34px Helvetica, Arial, sans-serif;
+  font: 13.34px Aleo, Georgia, serif;
   font-size: small;
   text-align: center;
   padding-bottom: 3em;
@@ -41,10 +41,12 @@ h2 {
   padding-bottom: .4em;
   border-bottom: 1px solid #eee;
   display: block;
-  font-size: 1.3em;
-  font-weight: bold;
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: 2em;
+  line-height: 1.1em;
+  font-weight: normal;
   text-transform: uppercase;
-  letter-spacing: .05em;
+  letter-spacing: .04em;
 }
 p { margin: 1em 0; }
 
@@ -166,8 +168,11 @@ a:visited { color: #a0a; }
 
 .title a {
   color: #a00;
+  font-family: "Vina Sans", Impact, sans-serif;
+  font-size: 1.7em;
+  font-weight: normal;
   text-transform: uppercase;
-  letter-spacing: .08em;
+  letter-spacing: .06em;
 }
 
 .title a:hover {
@@ -176,9 +181,11 @@ a:visited { color: #a0a; }
 
 .masthead a.extra {
   color: #7a6a48;
-  font-size: 80%;
+  font-family: "Vina Sans", Impact, sans-serif;
+  font-size: 1.25em;
+  font-weight: normal;
   text-transform: uppercase;
-  letter-spacing: .1em;
+  letter-spacing: .08em;
 }
 
 .masthead a.extra:hover {
@@ -291,10 +298,13 @@ img { max-width: 100%; height: auto; }
 }
 
 .projects .project-title {
-  font-weight: bold;
+  font-family: "Bebas Neue", Impact, sans-serif;
+  font-size: 1.5em;
+  line-height: 1.1em;
+  font-weight: normal;
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: .06em;
+  letter-spacing: .05em;
 }
 
 .projects .project-date {
@@ -331,7 +341,10 @@ img { max-width: 100%; height: auto; }
 }
 
 .post h2 {
+  font-family: inherit;
   font-size: 1em;
+  font-weight: bold;
+  line-height: 1.5em;
   letter-spacing: .1em;
   margin-top: 1.5em;
 }
