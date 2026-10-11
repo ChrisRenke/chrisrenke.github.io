@@ -11,6 +11,13 @@
   var CELL = 7;      // grid resolution in px
   var STEP = 0.035;  // elevation between lines
   var INDEX_EVERY = 5;
+  var PARALLAX = 0.25;   // background scrolls at this fraction of page speed
+  var MAX_EXTRA = 700;   // cap on extra canvas height, keeps memory sane
+
+  var reduceMotion = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var factor = 0;
+  var extra = 0;
 
   function hash(x, y) {
     var h = (x * 374761393 + y * 668265263 + SEED * 2147483647) | 0;
@@ -52,7 +59,14 @@
 
   function draw() {
     var dpr = window.devicePixelRatio || 1;
-    var w = window.innerWidth, h = window.innerHeight;
+    var w = window.innerWidth, vh = window.innerHeight;
+
+    // Draw a taller canvas than the viewport so there is terrain to slide
+    // into view while the page scrolls.
+    var maxScroll = Math.max(0, document.documentElement.scrollHeight - vh);
+    extra = reduceMotion ? 0 : Math.min(maxScroll * PARALLAX, MAX_EXTRA);
+    factor = maxScroll ? extra / maxScroll : 0;
+    var h = Math.ceil(vh + extra);
     canvas.width = Math.round(w * dpr);
     canvas.height = Math.round(h * dpr);
     canvas.style.width = w + 'px';
@@ -109,9 +123,25 @@
   function schedule() {
     if (pending) return;
     pending = true;
-    requestAnimationFrame(function () { pending = false; draw(); });
+    requestAnimationFrame(function () { pending = false; draw(); place(); });
+  }
+
+  function place() {
+    var y = Math.max(0, window.pageYOffset || 0) * factor;
+    canvas.style.transform = 'translate3d(0,' + (-Math.min(y, extra)).toFixed(1) + 'px,0)';
+  }
+
+  var placing = false;
+  function onScroll() {
+    if (placing) return;
+    placing = true;
+    requestAnimationFrame(function () { placing = false; place(); });
   }
 
   window.addEventListener('resize', schedule);
+  if (!reduceMotion) window.addEventListener('scroll', onScroll, { passive: true });
+  // page height can change after load (images), which changes the scroll range
+  if (window.ResizeObserver) new ResizeObserver(schedule).observe(document.body);
   draw();
+  place();
 })();
