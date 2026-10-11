@@ -16,12 +16,16 @@
     <body>
         <canvas id="contour" aria-hidden="true"></canvas>
 
-        <div class="site">
-          <div class="header">
+        <header class="masthead">
+          <div class="masthead-inner">
             <h1 class="title"><a href="/">{{ site.name }}</a></h1>
             <a class="extra" href="/">blog</a>
             <a class="extra" href="/projects">projects</a>
+            <span class="coords" aria-hidden="true">52.37&deg;N 4.90&deg;E</span>
           </div>
+        </header>
+
+        <div class="site">
 
           {{ content }}
 
