@@ -1,0 +1,22 @@
+---
+layout: default
+title: Docs
+permalink: /docs
+---
+
+<div id="home">
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li>
+      	<div class="date-label">
+      		<span>{{ post.date | date_to_string }}</span> &raquo; 
+      	</div>
+      	<div class="post-box">
+      		{% if post.image %}<a class="post-hero" href="{{ post.url }}"><img src="{{ post.image }}" alt="{{ post.title }}"></a>{% endif %}
+      		<a href="{{ post.url }}">{{ post.title }}</a>
+  		    <p class="post-excerpt">{{ post.excerpt }}</p>
+  		</div>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
