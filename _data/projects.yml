@@ -1,11 +1,9 @@
 # One entry per project, newest first.
 # image: path under /assets/projects/ (credit-card shaped, ~856x540 works well)
-# platforms: any of Android, Web, Wear OS (shown as colored pills).
 # date and blurb are optional; blurbs have room for about 50-80 words.
 - title: 7 Wonders Score Sheet
   url: https://chrisrenke.com/
   image: /assets/projects/7-wonders.png
-  platforms: [Android]
   # date:
   blurb: >-
     Score your 7 Wonders games and see how you really play. Science and Money
@@ -18,7 +16,6 @@
 - title: Baby Schedule
   url: https://chrisrenke.com/baby-schedule
   image: /assets/projects/baby-schedule.webp
-  platforms: [Web]
   # date:
   blurb: >-
     A visual version of the newborn schedules from the book Moms on Call. Instead
@@ -31,7 +28,6 @@
 - title: ELOquence
   url: https://chrisrenke.com/ELOquence
   image: /assets/projects/eloquence.webp
-  platforms: [Web]
   # date:
   blurb: >-
     Rank anything by choosing between two options at a time. Paste in a list of

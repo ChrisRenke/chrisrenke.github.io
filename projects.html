@@ -14,7 +14,6 @@ permalink: /projects
         <div class="project-text">
           <a class="project-title" href="{{ project.url }}">{{ project.title }}</a>
           {% if project.date %}<span class="project-date">{{ project.date | date_to_string }}</span>{% endif %}
-          {% if project.platforms %}<p class="pills">{% for platform in project.platforms %}<span class="pill pill-{{ platform | slugify }}">{{ platform }}</span>{% endfor %}</p>{% endif %}
           {% if project.blurb %}<p class="project-blurb">{{ project.blurb }}</p>{% endif %}
         </div>
       </li>
