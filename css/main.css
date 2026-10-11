@@ -168,11 +168,11 @@ a:visited { color: #a0a; }
 
 .title a {
   color: #a00;
-  font-family: "Vina Sans", Impact, sans-serif;
-  font-size: 1.7em;
-  font-weight: normal;
+  font-family: Quantico, "Arial Narrow", sans-serif;
+  font-size: 1.3em;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .06em;
+  letter-spacing: .08em;
 }
 
 .title a:hover {
@@ -181,11 +181,11 @@ a:visited { color: #a0a; }
 
 .masthead a.extra {
   color: #7a6a48;
-  font-family: "Vina Sans", Impact, sans-serif;
-  font-size: 1.25em;
-  font-weight: normal;
+  font-family: Quantico, "Arial Narrow", sans-serif;
+  font-size: .9em;
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: .08em;
+  letter-spacing: .12em;
 }
 
 .masthead a.extra:hover {
