@@ -1,0 +1,14 @@
+# One entry per project, newest first.
+# image: path under /assets/projects/ (credit-card shaped, ~856x540 works well)
+# date and blurb are optional.
+- title: Baby Schedule
+  url: https://chrisrenke.com/baby-schedule
+  # date:
+  # image: /assets/projects/baby-schedule.png
+  # blurb:
+
+- title: ELOquence
+  url: https://chrisrenke.com/ELOquence
+  # date:
+  # image: /assets/projects/eloquence.png
+  # blurb:

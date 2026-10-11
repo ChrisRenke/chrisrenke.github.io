@@ -1,0 +1,28 @@
+---
+layout: default
+title: Projects
+permalink: /projects
+---
+
+<div id="projects">
+  <h1>Projects</h1>
+  <ul class="posts projects">
+    {% for project in site.data.projects %}
+      <li>
+        <a class="hero" href="{{ project.url }}">
+          {% if project.image %}<img src="{{ project.image }}" alt="{{ project.title }}">{% endif %}
+        </a>
+        <div class="project-text">
+          <div class="date-label">
+            {% if project.date %}<span>{{ project.date | date_to_string }}</span> &raquo;{% endif %}
+          </div>
+          <div class="post-box">
+            <a href="{{ project.url }}">{{ project.title }}</a>
+            {% if project.blurb %}<p class="post-excerpt">{{ project.blurb }}</p>{% endif %}
+            <p class="project-url"><a href="{{ project.url }}">{{ project.url | remove: "https://" | remove: "http://" }}</a></p>
+          </div>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

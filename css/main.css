@@ -159,6 +159,38 @@ img { max-width: 100%; height: auto; }
 
 /*****************************************************************************/
 /*
+/* Projects
+/*
+/*****************************************************************************/
+.projects li {
+  display: flex;
+  gap: 1.5em;
+  align-items: flex-start;
+  margin-bottom: 2em;
+}
+
+.projects .hero {
+  flex: 0 0 14em;
+  aspect-ratio: 85.6 / 54; /* credit card */
+  background-color: #eee;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.projects .hero img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-url {
+  margin: 0;
+  font-size: 80%;
+}
+
+/*****************************************************************************/
+/*
 /* Posts
 /*
 /*****************************************************************************/
@@ -221,6 +253,17 @@ img { max-width: 100%; height: auto; }
   }
 
   .posts li { margin-bottom: 1em; }
+
+  .projects li {
+    display: block;
+    margin-bottom: 2em;
+  }
+
+  .projects .hero {
+    display: block;
+    width: 100%;
+    margin-bottom: .75em;
+  }
 
   .footer .contact {
     float: none;
