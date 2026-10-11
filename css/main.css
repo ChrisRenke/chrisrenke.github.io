@@ -162,19 +162,30 @@ img { max-width: 100%; height: auto; }
 /* Projects
 /*
 /*****************************************************************************/
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14em, 1fr));
+  gap: 2em 1.5em;
+}
+
 .projects li {
-  display: flex;
-  gap: 1.5em;
-  align-items: flex-start;
-  margin-bottom: 2em;
+  line-height: 1.4em;
 }
 
 .projects .hero {
-  flex: 0 0 14em;
+  display: block;
   aspect-ratio: 85.6 / 54; /* credit card */
   background-color: #eee;
-  border-radius: 4px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
   overflow: hidden;
+  margin-bottom: .6em;
+  transition: transform .15s ease, border-color .15s ease;
+}
+
+.projects .hero:hover {
+  transform: translateY(-3px);
+  border-color: #a00;
 }
 
 .projects .hero img {
@@ -182,6 +193,22 @@ img { max-width: 100%; height: auto; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.projects .project-title {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.projects .project-date {
+  display: block;
+  color: #aaa;
+  font-family: Monaco, "Courier New", monospace;
+  font-size: 80%;
+}
+
+.projects .post-excerpt {
+  margin: .3em 0;
 }
 
 .project-url {
@@ -254,16 +281,6 @@ img { max-width: 100%; height: auto; }
 
   .posts li { margin-bottom: 1em; }
 
-  .projects li {
-    display: block;
-    margin-bottom: 2em;
-  }
-
-  .projects .hero {
-    display: block;
-    width: 100%;
-    margin-bottom: .75em;
-  }
 
   .footer .contact {
     float: none;
