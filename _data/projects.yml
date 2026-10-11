@@ -6,11 +6,12 @@
   image: /assets/projects/7-wonders.png
   # date:
   blurb: >-
-    An Android score sheet for the board game 7 Wonders. Add your players, pick
-    each one's wonder and which side they're playing, then fill in every scoring
-    category on a single color-coded sheet, from Wonder and Money to Science,
-    Guilds, Commerce and the expansions. Totals update as you type, and past
-    games are saved so you can settle old arguments later.
+    Score your 7 Wonders games and see how you really play. Science and Money
+    work out their own points, places and medals are settled for you, and every
+    game is saved. The stats build up from there: wins, podiums, streaks and
+    personal bests for every player and every Wonder. It covers both editions
+    and every expansion, and turns the results into a scorecard you can send
+    to the group chat.
 
 - title: Baby Schedule
   url: https://chrisrenke.com/baby-schedule
