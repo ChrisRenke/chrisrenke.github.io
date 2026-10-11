@@ -168,10 +168,10 @@ a:visited { color: #a0a; }
 
 .title a {
   color: #a00;
-  font-size: 1.15em;
+  font-size: 1.3em;
   font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: .08em;
+  text-transform: lowercase;
+  letter-spacing: .02em;
 }
 
 .title a:hover {
@@ -180,10 +180,10 @@ a:visited { color: #a0a; }
 
 .masthead a.extra {
   color: #7a6a48;
-  font-size: .8em;
+  font-size: .95em;
   font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: .12em;
+  text-transform: lowercase;
+  letter-spacing: .03em;
 }
 
 .masthead a.extra:hover {
