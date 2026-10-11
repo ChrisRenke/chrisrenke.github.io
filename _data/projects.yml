@@ -1,20 +1,36 @@
 # One entry per project, newest first.
 # image: path under /assets/projects/ (credit-card shaped, ~856x540 works well)
 # date and blurb are optional; blurbs have room for about 50-80 words.
+- title: 7 Wonders Score Sheet
+  url: https://chrisrenke.com/
+  image: /assets/projects/7-wonders.png
+  # date:
+  blurb: >-
+    An Android score sheet for the board game 7 Wonders. Add your players, pick
+    each one's wonder and which side they're playing, then fill in every scoring
+    category on a single color-coded sheet, from Wonder and Money to Science,
+    Guilds, Commerce and the expansions. Totals update as you type, and past
+    games are saved so you can settle old arguments later.
+
 - title: Baby Schedule
   url: https://chrisrenke.com/baby-schedule
-  # date:
   image: /assets/projects/baby-schedule.webp
-  # blurb:
+  # date:
+  blurb: >-
+    A visual version of the newborn schedules from the book Moms on Call. Instead
+    of a flat list of times, the day is laid out as yesterday, today and
+    tomorrow, so you can see night sleep wrap past midnight and the evening run
+    into the morning. Switch between the 2-week and 6-month schedules, tap any
+    block for the book's own wording, or draw a custom day. Installs as an
+    offline app.
 
 - title: ELOquence
   url: https://chrisrenke.com/ELOquence
-  # date:
   image: /assets/projects/eloquence.webp
-  # blurb:
-
-- title: 7 Wonders Score Sheet
-  url: https://chrisrenke.com/
   # date:
-  image: /assets/projects/7-wonders.png
-  # blurb:
+  blurb: >-
+    Rank anything by choosing between two options at a time. Paste in a list of
+    baby names, vacation spots or pizza toppings and ELOquence shows you pairs,
+    then builds a ranking with the same rating system used in chess. When it
+    isn't a clear winner there are "both are great" and "both are meh" buttons.
+    Your lists save in the browser, and rankings export to CSV.
