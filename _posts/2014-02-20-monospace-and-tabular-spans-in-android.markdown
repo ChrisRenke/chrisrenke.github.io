@@ -3,6 +3,7 @@ layout: post
 title:  "Monospace and Tabular Spans in Android"
 date:   2014-02-20 20:53:41
 permalink: /spans
+image: /assets/span_gif.gif
 categories: android
 tags: android spans spannables monospace tabular java
 excerpt: Overcome a font's shortcomings with the power of Spans.

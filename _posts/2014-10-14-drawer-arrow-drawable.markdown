@@ -3,6 +3,7 @@ layout: post
 title:  "Drawer Arrow Drawable"
 date:   2014-10-14 08:30:00
 permalink: /drawerarrowdrawable
+image: /assets/reverse_engineer_process.gif
 categories: android
 tags: android drawable backport L drawer arrow
 excerpt: Reverse engineer and backport an awesome new Android L dynamic drawable

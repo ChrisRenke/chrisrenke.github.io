@@ -239,13 +239,36 @@ img { max-width: 100%; height: auto; }
 /* Post Listings
 /*
 /*****************************************************************************/
+.posts:not(.projects) li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1em;
+  margin-bottom: 2.5em;
+}
+
 .date-label {
-  display: inline-block;
-  vertical-align: top;
+  flex: 0 0 auto;
+  width: 8.5em;
 }
 
 .post-box {
-  display: inline-block;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.post-hero {
+  display: block;
+  margin-bottom: .6em;
+  border: 1px solid #d9d0b8;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.post-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .post-box > a {
@@ -393,12 +416,14 @@ img { max-width: 100%; height: auto; }
 
   .coords { display: none; }
 
-  .date-label,
-  .post-box {
+  .posts:not(.projects) li {
     display: block;
+    margin-bottom: 2em;
   }
 
-  .posts li { margin-bottom: 1em; }
+  .date-label {
+    width: auto;
+  }
 
 
   .footer .contact {
