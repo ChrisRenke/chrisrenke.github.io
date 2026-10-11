@@ -338,6 +338,27 @@ img { max-width: 100%; height: auto; }
   font-size: 80%;
 }
 
+.pills {
+  margin: .5em 0 0;
+  line-height: 1;
+}
+
+.pill {
+  display: inline-block;
+  margin-right: .4em;
+  padding: .3em .7em;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 70%;
+  font-weight: bold;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.pill-android { background-color: #2b8a4b; }
+.pill-web { background-color: #2563b8; }
+.pill-wear-os { background-color: #14532d; }
+
 .projects .project-blurb {
   margin: .6em 0;
   font-size: 90%;
