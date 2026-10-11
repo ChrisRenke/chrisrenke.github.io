@@ -104,11 +104,18 @@ a:visited { color: #a0a; }
     linear-gradient(#7a6a48, #7a6a48) bottom right / 1px 12px no-repeat;
 }
 
-/* full-width band at the top of the page */
+/* band at the top of the page, same width as the content panel */
 .masthead {
   position: relative;
+  font-size: 115%;
+  max-width: 48em;
+  width: calc(100% - 1.5em);
+  box-sizing: border-box;
+  margin: 0 auto;
   background-color: #fff;
-  border-bottom: 1px solid #c2a167;
+  border: 1px solid #d9d0b8;
+  border-top: 0;
+  border-bottom-color: #c2a167;
 }
 
 /* ruler ticks hanging off the bottom edge */
@@ -127,11 +134,8 @@ a:visited { color: #a0a; }
   flex-wrap: wrap;
   align-items: baseline;
   gap: .25em 1em;
-  max-width: 48em;
   box-sizing: border-box;
-  margin: 0 auto;
   padding: 1.25em 2em;
-  font-size: 115%;
   text-align: left;
 }
 
