@@ -1,4 +1,4 @@
 name: Chris Renke
-markdown: redcarpet
-pygments: true
+markdown: kramdown
+highlighter: rouge
 timezone: America/Los_Angeles
