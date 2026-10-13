@@ -232,9 +232,7 @@ a:visited { color: #a0a; }
   list-style: none;
 }
 
-.colophon li + li::before {
-  content: "+";
-  margin-right: 1em;
+.colophon .sep {
   color: #c2a167;
   font-family: Monaco, "Courier New", monospace;
 }
@@ -242,12 +240,14 @@ a:visited { color: #a0a; }
 .colophon a,
 .colophon a:visited {
   color: #7a6a48;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: #d9c9a3;
+  text-underline-offset: .2em;
 }
 
 .colophon a:hover {
   color: #000;
-  text-decoration: underline;
+  text-decoration-color: currentColor;
 }
 
 
@@ -454,7 +454,7 @@ a:visited { color: #a0a; }
     align-items: flex-start;
   }
 
-  .colophon li + li::before {
+  .colophon .sep {
     display: none;
   }
 }
