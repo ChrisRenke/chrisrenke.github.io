@@ -1,14 +1,13 @@
 # One entry per project, newest first.
 # image: path under /assets/projects/ (credit-card shaped, ~856x540 works well)
-# date and blurb are optional; blurbs have room for about 50-80 words.
+# date and blurb are optional (blurbs take **bold** and *italics*); blurbs have room for about 50-80 words.
 - title: 7 Wonders Score Sheet
   url: https://play.google.com/store/apps/details?id=com.aceanuu.swss
   image: /assets/projects/7-wonders.png
   # date:
   blurb: >-
-    Downloaded over 100,000 times on Google Play. Score your 7 Wonders games
-    and see how you really play. Science and Money
-    work out their own points, places and medals are settled for you, and every
+    **100k+ downloads** • Score your 7 Wonders games and see how you really
+    play. Science and Money work out their own points, places and medals are settled for you, and every
     game is saved. The stats build up from there: wins, podiums, streaks and
     personal bests for every player and every Wonder. It covers both editions
     and every expansion, and turns the results into a scorecard you can send
